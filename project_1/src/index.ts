@@ -26,17 +26,10 @@ class Project
             this.buttons.forEach((button: HTMLInputElement) => {
                 button.addEventListener("input", (e: any) => {
                     this.updateInputsData();
-                    this.countInputsData();
                     this.updateData();
                 });
             });
         }
-    }
-
-    countInputsData()
-    {
-        console.log(this.countMin());
-        
     }
 
     updateInputsData()
@@ -80,10 +73,23 @@ class Project
 
     updateData()
     {
-        console.log(this.countMin());
-        console.log(this.countMax());
-        console.log(this.countAvg());
-        console.log(this.countSum());
+        let inpSum: HTMLInputElement | null = document.querySelector("#sum");
+        let inpAvg: HTMLInputElement | null = document.querySelector("#avg");
+        let inpMin: HTMLInputElement | null = document.querySelector("#min");
+        let inpMax: HTMLInputElement | null = document.querySelector("#max");
+
+        if(inpSum != null) {
+            inpSum.value = String(this.countSum());
+        }
+        if(inpAvg != null) {
+            inpAvg.value = String(this.countAvg());
+        }
+        if(inpMin != null) {
+            inpMin.value = String(this.countMin());
+        }
+        if(inpMax != null) {
+            inpMax.value = String(this.countMax());
+        }
     }
 
     isNumber(value: string | number): boolean
