@@ -1,20 +1,37 @@
 class Recorder
 {
-    public state: RecorderState = RecorderState.WAITING;
-    private channel: any = [];
+    private _startAt: number = 0;
+    private _state: RecorderState = RecorderState.WAITING;
+    private _channel: any = [];
 
     push(key: string, time: number): void {
         if(this.state == RecorderState.RECORDING) {
-            this.channel.push({key, time});
+            this._channel.push({key, time});
         }
     }
 
     getChannel() {
-        return this.channel;
+        return this._channel;
     }
 
     clearChannel(): void {
-        this.channel = [];
+        this._channel = [];
+    }
+
+    public get state() {
+        return this._state;
+    }
+
+    public set state(state: RecorderState) {
+        this._state = state;
+    }
+
+    public get startAt() {
+        return this._startAt;
+    }
+
+    public set startAt(startAt: number) {
+        this._startAt = startAt;
     }
 }
 

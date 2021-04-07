@@ -13,8 +13,9 @@ export default class Player
 
     play() {
         let channel = this.recorder.getChannel();
+        let startAt = this.recorder.startAt;
 
-        let prevTime = 0;
+        let prevTime = startAt;
         channel?.forEach((step: any) => {
             if(prevTime == 0) {
                 prevTime = step.time;
@@ -26,9 +27,5 @@ export default class Player
                 this.keyboard.play();
             }, timeout);
         });
-    }
-
-    stop() {
-
     }
 }
