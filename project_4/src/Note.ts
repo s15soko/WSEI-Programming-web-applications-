@@ -1,4 +1,4 @@
-class Note
+export default class Note
 {
-    
+
 }

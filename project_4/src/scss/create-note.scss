@@ -35,6 +35,10 @@
         .not-visible {
             display: none;
         }
+
+        .visible {
+            display: flex !important;
+        }
     }
 }
 

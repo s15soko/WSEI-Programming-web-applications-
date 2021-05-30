@@ -1,6 +1,6 @@
 import { IStorage } from "./interfaces/IStorage";
 
-class AppStorage implements IStorage
+export default class AppStorage implements IStorage
 {
     
 }

@@ -1,38 +1,51 @@
+import CreateNoteInput from "./CreateNoteInput";
+import Notes from "./Notes";
+
 export default class App 
 {
-    private apiKey = "50d53005c0fd5f556bb4ef15224c4209";
-    public storageKey = "weatherItems";
+    createNoteInput: CreateNoteInput;
+    notes: Notes;
 
-    public getItems() {
-        const items = this._getItemsAsString();
-        return items ? JSON.parse(items) : [];
+    constructor()
+    {
+        this.notes = new Notes();
+        this.createNoteInput = new CreateNoteInput();
+
+        this.init();
+
     }
 
-    private _getItemsAsString(): string | null {
-        return localStorage.getItem(this.storageKey);
+    private init()
+    {
+        const noteInput = this.createNoteInput;
+
+        noteInput.createNoteBtnClose?.addEventListener("click", (event) => {
+            this.createNote();
+        });
+
+        if(noteInput.createNoteInput != null)
+        {
+            const createNoteContainer = noteInput.getNoteContainer();
+            noteInput.createNoteInput.addEventListener('focus', (event) => {
+                noteInput.showNotVisibleElements();
+            }); 
+
+            document.addEventListener('click', (event) => {
+                const target = <Node> event.target;
+
+                if (target !== createNoteContainer && !createNoteContainer.contains(target)) {
+                    this.createNote();
+                    noteInput.hideNotVisibleElements();
+                }
+            });
+        } 
     }
 
-    public setOrSkip(cityIdentifier: string) {
-        let items = this._getItemsAsString();
-        let itemAsArray = items ? JSON.parse(items) : [];
+    createNote()
+    {
+        
+        console.log(this.createNoteInput.title);
 
-        if(!itemAsArray.includes(cityIdentifier)) {
-            itemAsArray.push(cityIdentifier);
-            localStorage.setItem(this.storageKey, JSON.stringify(itemAsArray));
-        }
-    }
-
-    public async getCityInfo(cityName: string = "", cityId: null|number = null) {
-        return await this._getWeather(cityName, cityId);
-    }
-
-    private async _getWeather(cityName: string = "", cityId: null|number = null): Promise<any> {
-        const url = cityId != null
-            ? `http://api.openweathermap.org/data/2.5/weather?id=${cityId}&APPID=${this.apiKey}&units=metric`
-            : `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=${this.apiKey}&units=metric`;
-
-
-        const response = await fetch(url);
-        return await response.json();
+        this.createNoteInput.title = "";
     }
 }
