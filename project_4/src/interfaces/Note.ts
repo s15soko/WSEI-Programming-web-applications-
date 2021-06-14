@@ -1,6 +1,6 @@
 export default interface Note {
-    get title(): string;
-    get content(): string;
-    get pinned(): boolean;
-    get createdAt(): (Date | null);
+    Title: string;
+    Content: string;
+    Pinned: boolean;
+    CreatedAt: (Date | null);
 }

@@ -13,18 +13,18 @@ export default class NoteCreator
     private _title = "";
     private _content = "";
 
-    public set title(title: string) {
+    public set Title(title: string) {
         this._title = title;
-        this._note.title = title;
+        this._note.Title = title;
 
         if(this.createNoteTitleInput !== null) {
             this.createNoteTitleInput.value = title;
         }
     }
 
-    public set content(content: string) {
+    public set Content(content: string) {
         this._content = content;
-        this._note.content = content;
+        this._note.Content = content;
 
         if(this.createNoteContentInput !== null) {
             this.createNoteContentInput.value = content;
@@ -75,13 +75,13 @@ export default class NoteCreator
         this.createNoteTitleInput?.addEventListener("input", (event) => {
             const target = <HTMLInputElement>event.target;
             const value = target.value;
-            this.title = value;
+            this.Title = value;
         });
 
         this.createNoteContentInput?.addEventListener("input", (event) => {
             const target = <HTMLInputElement>event.target;
             const value = target.value;
-            this.content = value;
+            this.Content = value;
         });
 
         if(this.createNoteContentInput != null)
@@ -166,14 +166,14 @@ export default class NoteCreator
     //
 
     public clear() {
-        this.title = "";
-        this.content = "";
+        this.Title = "";
+        this.Content = "";
         this._note = new Note();
         this.setDefaultSelfContainerColor();
     }
 
     private canCreateNote() {
-        return this._note.title !== "" || this._note.content !== "";
+        return this._note.Title !== "" || this._note.Content !== "";
     }
 
     public close(createOnClose = true) {

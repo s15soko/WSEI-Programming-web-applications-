@@ -7,35 +7,35 @@ export default class Note implements NoteInterface
     private _pinned = false;
     private _createdAt: Date | null = null;
 
-    public get title(): string {
+    public get Title() {
         return this._title;
     }
 
-    public set title(title: string) {
+    public set Title(title: string) {
         this._title = title;
     }
 
-    public get content(): string {
+    public get Content(): string {
         return this._content;
     }
 
-    public set content(content: string) {
+    public set Content(content: string) {
         this._content = content;
     }
 
-    public get pinned(): boolean {
+    public get Pinned(): boolean {
         return this._pinned;
     }
 
-    public set pinned(pinned: boolean) {
+    public set Pinned(pinned: boolean) {
         this._pinned = pinned;
     } 
 
-    public get createdAt(): (Date | null) {
+    public get CreatedAt(): (Date | null) {
         return this._createdAt;
     }
 
-    public set createdAt(createdAt: (Date | null)) {
+    public set CreatedAt(createdAt: (Date | null)) {
         this._createdAt = createdAt;
     }
 }
