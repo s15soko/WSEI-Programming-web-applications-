@@ -88,7 +88,7 @@ export default class NoteCreator
             this.Content = value;
         });
 
-        if(this.createNoteContentInput != null)
+        if(this.createNoteContentInput !== null)
         {
             const createNoteContainer = this.getNoteContainer();
             this.createNoteContentInput.addEventListener('focus', (event) => {
@@ -103,6 +103,18 @@ export default class NoteCreator
                 }
             });
         } 
+
+        if(this.colorPaletteContainer !== null)
+        {
+            document.addEventListener('click', (event) => {
+                const target = <Node> event.target;
+    
+                if (target !== this.colorPaletteContainer && !this.colorPaletteContainer?.contains(target) && target !== this.colorPickerButton) {
+                    this.hidePaletteContainer();
+                }
+            });
+        }
+        
 
         this.colorPickerButton?.addEventListener("click", (event) => {
             this.togglePaletteContainer();
