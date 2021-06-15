@@ -55,6 +55,7 @@ export default class AppStorage implements Storage
 
     async save(note: NoteInterface) {
         
+        note.Id = String(Date.now());
         let attr = this.loadStorageNote(note);
         let items = this.getCurrentNotesAsStorageObjects();
         items.push(attr);

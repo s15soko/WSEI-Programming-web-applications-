@@ -5,7 +5,7 @@ export default interface Note {
     Title: string;
     Content: string;
     Pinned: boolean;
-    CreatedAt: (Date | null);
+    CreatedAt: (number | null);
     Color: ColorInterface;
 }
 
@@ -14,6 +14,14 @@ export interface NoteStorage {
     title: string;
     content: string;
     pinned: boolean;
-    createdAt: (Date | null);
+    createdAt: (number | null);
     hexColor: string;
+}
+
+export interface FirebaseDbNoteStorage {
+    title: string;
+    content: string;
+    pinned: boolean;
+    created_at: (number | null);
+    hex_color: string;
 }

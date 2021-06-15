@@ -5,6 +5,7 @@ import StorageInterface from "./interfaces/Storage";
 import AppFirestoreStorage from "./storage/AppFirestoreStorage";
 import AppStorage from "./storage/AppStorage";
 import Notes from "./controllers/Notes";
+import config from "./config";
 
 export default class App implements NoteControllerInterface {
     noteCreator: NoteCreator;
@@ -23,8 +24,10 @@ export default class App implements NoteControllerInterface {
     }
 
     private getStorageService(): StorageInterface {
-        let a = 2; // todo
-        if (1 == a) return new AppFirestoreStorage();
+
+        const type = config.storage;
+
+        if (type === "firebase") return new AppFirestoreStorage();
         return new AppStorage();
     }
 

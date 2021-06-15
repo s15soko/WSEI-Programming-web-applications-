@@ -8,13 +8,13 @@ export default class Note implements NoteInterface
     private _title = "";
     private _content = "";
     private _pinned = false;
-    private _createdAt: Date | null = null;
+    private _createdAt: number | null = null;
     private _color: ColorInterface;
 
     constructor()
     {
-        this._id = String(Date.now());
         this._color = new Color();
+        this.Color.HexColor = "#fff";
     }
 
     //
@@ -51,11 +51,11 @@ export default class Note implements NoteInterface
         this._pinned = pinned;
     } 
 
-    public get CreatedAt(): (Date | null) {
+    public get CreatedAt(): (number | null) {
         return this._createdAt;
     }
 
-    public set CreatedAt(createdAt: (Date | null)) {
+    public set CreatedAt(createdAt: (number | null)) {
         this._createdAt = createdAt;
     }
 
