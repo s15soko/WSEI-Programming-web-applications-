@@ -33,6 +33,20 @@ export class WeatherCardBuilder
 
     get CardContent() {
         const content = document.createElement("div");
+        content.classList.add("content");
+
+        const temp = document.createElement("span");
+        temp.textContent = `Temp: ${this.city.main.temp}`;
+
+        const humidity = document.createElement("span");
+        humidity.textContent = `Humidity: ${this.city.main.humidity}`;
+
+        const pressure = document.createElement("span");
+        pressure.textContent = `Pressure: ${this.city.main.pressure}`;
+
+        content.append(temp);
+        content.append(humidity);
+        content.append(pressure);
 
         return content;
     }
