@@ -6,7 +6,7 @@ body {
     padding: 0;
     margin: 0;
     min-height: 100vh;
-    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background: linear-gradient(0deg, rgb(110, 236, 238) 0%, rgb(253, 213, 127) 100%);
 }
 
 .container {
@@ -20,8 +20,25 @@ body {
     padding: 24px 0;
 }
 
-.container .searchContainer input[type=text]{
+.container .searchContainer input[type=text] {
+    padding: 10px 16px;
+    font-size: 1.2em;
+    outline: none;
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+}
 
+.container .searchContainer .search-btn {
+    margin-left: 4px;
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 4px;
+}
+
+.container .searchContainer .search-btn:hover {
+    background-color: rgb(228, 228, 228);
+    cursor: pointer;
 }
 
 .container .resultContainer {
@@ -39,10 +56,12 @@ body {
 .weatherCard {
     display: flex;
     flex-direction: column;
-    width: 160px;
-    height: 160px;
-    color: white;
-    border: 1px solid white;
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgb(228, 228, 228);
+    box-shadow: 0px 1px 4px 2px rgb(228, 228, 228);
+    border-radius: 3px;
+    background-color: white;
     padding: 5px;
     margin: 5px;
 }
@@ -54,5 +73,15 @@ body {
 }
 
 .weatherCard .weatherInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.weatherCard .weatherInfo img {
+    height: 100px;
+    object-fit: contain;
+}
+
+.weatherCard .weatherInfo span {
     text-align: center;
 }
