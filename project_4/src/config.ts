@@ -1,7 +1,7 @@
 import ConfigInterface from "./interfaces/Config";
 
 const config: ConfigInterface = {
-    storage: "firebase",
+    storage: "local",
     firebase: {
         apiKey: "AIzaSyBpILmmLxZwNt3n3MApaX02XDhfkgjYAi0",
         authDomain: "web-application-wsei-project4.firebaseapp.com",
